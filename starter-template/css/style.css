@@ -13,15 +13,25 @@
 	font-size: inherit;
 }
 
-#plane {
-    margin: 50px;
-    margin-bottom: 70px;
-}
 
 #title {
     font-weight: 500;
+    margin-bottom: 325px;
 }
 
 #enter_button {
     font-size: 10;
 }
+
+nav ul a, nav {
+    color: #e0e0e0;
+}
+
+body{
+    background-image: url("planes_flying.jpg");
+    background-size: cover;
+    height: 100%;
+    background-repeat: repeat;
+}
+
+
