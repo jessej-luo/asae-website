@@ -16,7 +16,8 @@
 
 #title {
     font-weight: 500;
-    margin-bottom: 325px;
+    margin-bottom: 350px;
+    margin-top: 100px;
 }
 
 #enter_button {
@@ -32,6 +33,16 @@ body{
     background-size: cover;
     height: 100%;
     background-repeat: repeat;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.card-title {
+    font-size: 50;
 }
 
 

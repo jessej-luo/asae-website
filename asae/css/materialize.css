@@ -1567,11 +1567,12 @@
 .grey-text.text-lighten-1 {
   color: #bdbdbd !important; }
 
+/* custom */
 .grey {
-  background-color: #9e9e9e !important; }
-
+  background-color: #e0e0e0 !important; }
+/* custom */
 .grey-text {
-  color: #9e9e9e !important; }
+  color: #e0e0e0 !important; }
 
 .grey.darken-1 {
   background-color: #757575 !important; }
