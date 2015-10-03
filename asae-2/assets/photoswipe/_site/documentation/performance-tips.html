@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#" debug="true">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+    <meta charset="utf-8">
+
+    <title>PhotoSwipe Performance Tips</title>
+
+    <meta name="description" content="Suggestions on how to make gallery faster.">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0"> 
+
+    <meta name="author" content="Dmitry Semenov">
+    <link rel="canonical" href="http://photoswipe.com/documentations/performance-tips.html">
+
+    <meta property="og:url" content="http://photoswipe.com/documentations/performance-tips.html">
+    <meta property="og:title" content="PhotoSwipe Performance Tips">
+    <meta property="og:description" content="Suggestions on how to make gallery faster.">
+    <meta property="og:image" content="http://photoswipe.com/test/horizontal-swipe.jpg">
+
+    <link href="https://plus.google.com/102586375605352607718" rel="publisher" />
+
+  
+    <link rel="icon apple-touch-icon" href="../test/apple-touch-icon-144x144.png" sizes="144x144" type="image/png">
+    <link href="../site-assets/site.css?v=web-4.1.0-1.0.4" rel="stylesheet" />
+    
+  
+
+    
+    <script src="//use.typekit.net/snf1yod.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+      <!--[if lt IE 9]>
+       <script>
+          document.createElement('figure');
+       </script>
+      <![endif]-->
+  </head>
+
+  <body>
+
+
+    
+      
+      <div class="section docs"><div class="row row--docs">
+
+      <a class="docs-logo" href="http://photoswipe.com">PhotoSwipe</a>
+
+      <h1>Performance Tips</h1>
+
+      <div class="docs-menu">
+
+	<!-- <a class="docs-logo" href="http://photoswipe.com">PhotoSwipe</a> -->
+
+	<ul id="docs-menu-list">
+		<li>
+			<a href="getting-started.html">Getting started</a>
+		</li>
+
+		<li>
+			<a href="options.html">Options</a>
+		</li>
+
+		<li>
+			<a href="api.html">API</a>
+		</li>
+
+		<li>
+			<a href="faq.html">FAQ</a>
+		</li>
+
+
+
+		<li style="margin-top: 15px;">
+			<a href="custom-html-in-slides.html">HTML in slides</a>
+		</li>	
+
+		<li>
+			<a href="responsive-images.html">Responsive images</a>
+		</li>
+
+		<li>
+			<a href="performance-tips.html">Performance tips</a>
+		</li>
+
+		<li>
+			<a href="seo.html">SEO</a>
+		</li>
+
+
+
+		<li style="margin-top: 15px;">
+			<a href="https://github.com/dimsemenov/PhotoSwipe" class="external">GitHub</a>
+		</li>
+
+		<li>
+			<a href="https://photoswipe.uservoice.com/forums/275302-feature-requests-ideas" class="external">Ideas</a>
+		</li>
+
+		<li>
+			<a href="http://twitter.com/photoswipe" class="external">Twitter</a>
+		</li>
+	
+		<li>
+			<a href="http://dimsemenov.com/subscribe.html?i=pswp" class="external">Newsletter</a>
+		</li>
+
+		
+
+	</ul>
+
+	<div class="docs-menu__ad">
+		Code Computerlove are <a href="http://www.codecomputerlove.com/jobs/">hiring software engineers</a> in the UK.
+	</div>
+</div>
+<script>
+(function() {
+	// And this, kids, is what lazy JS developers do when they need a menu in Jekyll
+	var menuEls = document.getElementById('docs-menu-list').children,
+		el,
+		currUrl = window.location.href;
+	for(var i = 0, l = menuEls.length; i < l; i++) {
+		el = menuEls[i].children[0];
+		if( currUrl.indexOf( el.href ) > -1 ) {
+			el.className += 'docs-menu__item--active';
+		}
+	}
+}());
+</script>
+
+
+      
+
+    
+
+
+    <h2>Animations</h2>
+
+<ul>
+<li>Animation performance dramatically depends on the size of an image. The smaller image &ndash; the smoother animation. So don&#39;t be lazy and <a href="responsive-images.html">serve responsive images</a>, or at least don&#39;t serve images larger than 1200x1200 for phones.</li>
+<li>Don&#39;t do anything during the animations that can cause Paint or Layout. Don&#39;t append new elements to the DOM. Don&#39;t change <code>display</code> or <code>visibility</code>. Don&#39;t breath. You can only change <code>transform</code> and <code>opacity</code>. Delay all your changes after animation ends &ndash; use events: <code>beforeChange</code> (slide switched), <code>initialZoomInEnd</code> (initial zoom in animation ended) and <code>initialZoomOutEnd</code> (initial zoom out animation ended).</li>
+<li>Try to avoid complex <code>:hover</code> and <code>:active</code> effects on thumbnails that open PhotoSwipe if you have zoom-in/out animation enabled (apply the first rule). </li>
+<li>Make sure that you don&#39;t have complex styles on UI over PhotoSwipe sliding area. For example, <code>text-shadow</code> on caption text can cause issues.</li>
+</ul>
+
+<p>If you followed above steps and performance of your gallery differs from <a href="http://photoswipe.com">PhotoSwipe home page</a>, start isolating PhotoSwipe on page by excluding all JS/CSS/HTML code not related to it. Make sure that you don&#39;t have any kind of banner rotators that continuously run some animation behind the PhotoSwipe. </p>
+
+<p>If it doesn&#39;t work fast even after you isolated PhotoSwipe &ndash; open an <a href="https://github.com/dimsemenov/PhotoSwipe/issues">issue on GitHub</a> and provide a link to <a href="http://css-tricks.com/reduced-test-cases/">reduced test case</a>.</p>
+
+<h2>Including Files</h2>
+
+<ul>
+<li>Default PhotoSwipe UI has <code>png</code> and <code>svg</code> sprite. By default, it&#39;s loaded only after PhotoSwipe is opened. To make controls appear instantly, you may merge gallery sprite with your site &quot;main&quot; sprite, or preload it via CSS.</li>
+<li>Defer the loading of PhotoSwipe JS file(s) if gallery is not the main feature of your page. </li>
+<li>Combine JS, minify and combine CSS files.</li>
+</ul>
+
+<p>Know how this page can be improved? <a href="https://github.com/dimsemenov/PhotoSwipe/blob/master/website/documentation/responsive-images.md">Suggest an edit!</a></p>
+
+<iframe src="http://ghbtns.com/github-btn.html?user=dimsemenov&amp;repo=photoswipe&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="155" height="30" style=""></iframe>
+
+
+
+    
+
+    <p style="
+        margin-top: 100px;
+        margin-bottom: 100px;
+        text-align: center;
+    "><span title="Coded">&lt;/&gt;</span> with <span title="love">&lt;3</span> in <a class="ukraine-flag" href="http://en.wikipedia.org/wiki/Ukraine" title="Ukraine"></a> by <a href="http://twitter.com/dimsemenov">@dimsemenov</a></p>
+
+
+    </div></div>
+
+    <script>
+      // Disable codepens on small screens, sort of.
+      if(screen.width && screen.width < 1200 ) {
+        var els = document.querySelectorAll('.codepen-embed');
+
+        for (i = 0; i < els.length; ++i) {
+          els[i].className += " codepen-embed--disabled";
+        }
+      } else {
+        document.write('<script src="//assets.codepen.io/assets/embed/ei.js"><' + '\/script>');
+      }
+    </script>
+  
+
+
+    
+
+    
+
+
+
+
+  </body>
+</html>
