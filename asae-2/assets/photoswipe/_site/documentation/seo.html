@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#" debug="true">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+    <meta charset="utf-8">
+
+    <title>SEO Friendly JavaScript Image Gallery Markup</title>
+
+    <meta name="description" content="Ideal HTML markup for JavaScript image gallery (lightbox type).">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0"> 
+
+    <meta name="author" content="Dmitry Semenov">
+    <link rel="canonical" href="http://photoswipe.com/documentation/seo.html">
+
+    <meta property="og:url" content="http://photoswipe.com/documentation/seo.html">
+    <meta property="og:title" content="SEO Friendly JavaScript Image Gallery Markup">
+    <meta property="og:description" content="Ideal HTML markup for JavaScript image gallery (lightbox type).">
+    <meta property="og:image" content="http://photoswipe.com/test/horizontal-swipe.jpg">
+
+    <link href="https://plus.google.com/102586375605352607718" rel="publisher" />
+
+  
+    <link rel="icon apple-touch-icon" href="../test/apple-touch-icon-144x144.png" sizes="144x144" type="image/png">
+    <link href="../site-assets/site.css?v=web-4.1.0-1.0.4" rel="stylesheet" />
+    
+  
+
+    
+    <script src="//use.typekit.net/snf1yod.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+      <!--[if lt IE 9]>
+       <script>
+          document.createElement('figure');
+       </script>
+      <![endif]-->
+  </head>
+
+  <body>
+
+
+    
+      
+      <div class="section docs"><div class="row row--docs">
+
+      <a class="docs-logo" href="http://photoswipe.com">PhotoSwipe</a>
+
+      <h1>Image Gallery SEO</h1>
+
+      <div class="docs-menu">
+
+	<!-- <a class="docs-logo" href="http://photoswipe.com">PhotoSwipe</a> -->
+
+	<ul id="docs-menu-list">
+		<li>
+			<a href="getting-started.html">Getting started</a>
+		</li>
+
+		<li>
+			<a href="options.html">Options</a>
+		</li>
+
+		<li>
+			<a href="api.html">API</a>
+		</li>
+
+		<li>
+			<a href="faq.html">FAQ</a>
+		</li>
+
+
+
+		<li style="margin-top: 15px;">
+			<a href="custom-html-in-slides.html">HTML in slides</a>
+		</li>	
+
+		<li>
+			<a href="responsive-images.html">Responsive images</a>
+		</li>
+
+		<li>
+			<a href="performance-tips.html">Performance tips</a>
+		</li>
+
+		<li>
+			<a href="seo.html">SEO</a>
+		</li>
+
+
+
+		<li style="margin-top: 15px;">
+			<a href="https://github.com/dimsemenov/PhotoSwipe" class="external">GitHub</a>
+		</li>
+
+		<li>
+			<a href="https://photoswipe.uservoice.com/forums/275302-feature-requests-ideas" class="external">Ideas</a>
+		</li>
+
+		<li>
+			<a href="http://twitter.com/photoswipe" class="external">Twitter</a>
+		</li>
+	
+		<li>
+			<a href="http://dimsemenov.com/subscribe.html?i=pswp" class="external">Newsletter</a>
+		</li>
+
+		
+
+	</ul>
+
+	<div class="docs-menu__ad">
+		Code Computerlove are <a href="http://www.codecomputerlove.com/jobs/">hiring software engineers</a> in the UK.
+	</div>
+</div>
+<script>
+(function() {
+	// And this, kids, is what lazy JS developers do when they need a menu in Jekyll
+	var menuEls = document.getElementById('docs-menu-list').children,
+		el,
+		currUrl = window.location.href;
+	for(var i = 0, l = menuEls.length; i < l; i++) {
+		el = menuEls[i].children[0];
+		if( currUrl.indexOf( el.href ) > -1 ) {
+			el.className += 'docs-menu__item--active';
+		}
+	}
+}());
+</script>
+
+
+      
+
+    
+
+
+    <p>PhotoSwipe does not force any HTML markup, you have full control. Simplest markup is a list of thumbnails that link to large image, simplest example:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;large-image.jpg&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;small-image.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;Image description&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+...
+</code></pre></div>
+<p>If you have long caption that doesn&#39;t fit in <code>alt</code> or it just contains HTML tags, you may use <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code>:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;figure&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;large-image.jpg&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;small-image.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;Image description&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;figcaption&gt;</span>Long image description<span class="nt">&lt;/figcaption&gt;</span>
+<span class="nt">&lt;/figure&gt;</span>
+...
+</code></pre></div>
+<p>You can go further and use <a href="http://schema.org/ImageGallery">Schema.org markup for ImageGallery</a> and <a href="http://schema.org/ImageObject">ImageObject</a>, it should look like this:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://schema.org/ImageGallery&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;figure</span> <span class="na">itemprop=</span><span class="s">&quot;associatedMedia&quot;</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://schema.org/ImageObject&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;large-image.jpg&quot;</span> <span class="na">itemprop=</span><span class="s">&quot;contentUrl&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;small-image.jpg&quot;</span> <span class="na">itemprop=</span><span class="s">&quot;thumbnail&quot;</span> <span class="na">alt=</span><span class="s">&quot;Image description&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+
+        <span class="c">&lt;!-- optionally use this method to store image dimensions for PhotoSwipe --&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">itemprop=</span><span class="s">&quot;width&quot;</span> <span class="na">content=</span><span class="s">&quot;300&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">itemprop=</span><span class="s">&quot;height&quot;</span> <span class="na">content=</span><span class="s">&quot;600&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;figcaption</span> <span class="na">itemprop=</span><span class="s">&quot;caption description&quot;</span><span class="nt">&gt;</span>
+            Long image description
+
+            <span class="c">&lt;!-- optionally define copyright --&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">&quot;copyrightHolder&quot;</span><span class="nt">&gt;</span>Photo: AP<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/figcaption&gt;</span>
+    <span class="nt">&lt;/figure&gt;</span>
+
+    <span class="nt">&lt;figure</span> <span class="na">itemprop=</span><span class="s">&quot;associatedMedia&quot;</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://schema.org/ImageObject&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;large-image.jpg&quot;</span> <span class="na">itemprop=</span><span class="s">&quot;contentUrl&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;small-image.jpg&quot;</span> <span class="na">itemprop=</span><span class="s">&quot;thumbnail&quot;</span> <span class="na">alt=</span><span class="s">&quot;Image description&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;figcaption</span> <span class="na">itemprop=</span><span class="s">&quot;caption description&quot;</span><span class="nt">&gt;</span>Long image description<span class="nt">&lt;/figcaption&gt;</span>
+    <span class="nt">&lt;/figure&gt;</span>
+
+    ...
+
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>If you don&#39;t want thumbnails to be visible on page, e.g. you have 50 images in gallery and you show just first 3 thumbnails + link &quot;view all images (50)&quot;, you definitely should use <a href="http://schema.org/ImageGallery">Schema.org markup</a> and you should have all 50 links (with text in contents of link element instead of thumbnail) in DOM (you may hide them with <code>display:none</code>). Example:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://schema.org/ImageGallery&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;figure</span> <span class="na">itemprop=</span><span class="s">&quot;associatedMedia&quot;</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://schema.org/ImageObject&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;large-image-1.jpg&quot;</span> <span class="na">itemprop=</span><span class="s">&quot;contentUrl&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;figcaption</span> <span class="na">itemprop=</span><span class="s">&quot;caption description&quot;</span><span class="nt">&gt;</span>Long image description 1<span class="nt">&lt;/figcaption&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/figure&gt;</span>
+
+    <span class="nt">&lt;figure</span> <span class="na">itemprop=</span><span class="s">&quot;associatedMedia&quot;</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">&quot;http://schema.org/ImageObject&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;large-image-2.jpg&quot;</span> <span class="na">itemprop=</span><span class="s">&quot;contentUrl&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;figcaption</span> <span class="na">itemprop=</span><span class="s">&quot;caption description&quot;</span><span class="nt">&gt;</span>Long image description 2<span class="nt">&lt;/figcaption&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/figure&gt;</span>
+
+    ...
+
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>In all above cases, <code>large-image.jpg</code> will be perfectly indexed. The caption element will be crawled even if you hide it with <code>display:none</code>, just keep the text relevant, non-spammy &ndash; don&#39;t stuff it with keywords.</p>
+
+<h3>Additional recommendations</h3>
+
+<ul>
+<li>Keep <code>alt</code> attribute short and descriptive. Leave long description for caption element.</li>
+<li><a href="https://support.google.com/webmasters/answer/114016">Google image publishing guidelines</a>.</li>
+<li>Use <a href="https://developers.google.com/webmasters/structured-data/testing-tool/">Google</a> or <a href="https://webmaster.yandex.com/microtest.xml">Yandex</a> structured data testing tool to validate your Schema.org markup. </li>
+<li>High-resolution images rank better, usually 1680px on a wider side is more than enough.</li>
+<li>Image caption that is visible on initial page load will always rank better than hidden one. A good example of gallery layout that manages to keep both thumbnails and caption visible initially on page is <a href="http://www.theguardian.com/science/gallery/2015/mar/13/satellites-as-youve-never-seen-them-before-in-pictures">the new Guardian gallery page</a>.</li>
+<li>Optimize images size and format:<br>
+
+<ul>
+<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization">Good guide by Ilya Grigorik</a>.</li>
+<li>Tools: for Mac there is <a href="https://imageoptim.com/">ImageOptim</a>, for Windows &ndash; <a href="http://nikkhokkho.sourceforge.net/static.php?page=FileOptimizer">FileOptimizer</a> or <a href="http://www.jpegmini.com/windows">JPEGmini</a> (limited lite version). Also, there are a lot of server-side/command-line tools like <a href="http://www.imagemagick.org/">ImageMagick</a> or <a href="http://jpegclub.org/jpegtran/">jpegtran</a>.</li>
+<li>If you serve different images for high-DPI (e.g. retina) screens, reduce their JPEG quality to 20-40% to save file size, <a href="http://www.netvlies.nl/blog/design-interactie/retina-revolution">good article about this</a>. </li>
+</ul></li>
+<li>You don&#39;t need to create image sitemap if you have links to images or/and valid Schema.org markup, but it can help you <a href="http://webmasters.stackexchange.com/a/5151">track how well they are indexed</a>.</li>
+<li>Feel free to use <code>srcset</code> or <code>&lt;picture&gt;</code> for thumbnails.</li>
+<li>Be careful with number of thumbnails on a gallery page, slow page load speed can hurt rankings.</li>
+<li>Search engines index the direct link to the image file quite well, especially with Schema.org markup. But having a separate HTML page for each image is better when it has a descriptive and unique title, description and comments.</li>
+</ul>
+
+<p>Know how this page can be improved? <a href="https://github.com/dimsemenov/PhotoSwipe/blob/master/website/documentation/seo.md">Please suggest an edit!</a></p>
+
+
+
+    
+
+    <p style="
+        margin-top: 100px;
+        margin-bottom: 100px;
+        text-align: center;
+    "><span title="Coded">&lt;/&gt;</span> with <span title="love">&lt;3</span> in <a class="ukraine-flag" href="http://en.wikipedia.org/wiki/Ukraine" title="Ukraine"></a> by <a href="http://twitter.com/dimsemenov">@dimsemenov</a></p>
+
+
+    </div></div>
+
+    <script>
+      // Disable codepens on small screens, sort of.
+      if(screen.width && screen.width < 1200 ) {
+        var els = document.querySelectorAll('.codepen-embed');
+
+        for (i = 0; i < els.length; ++i) {
+          els[i].className += " codepen-embed--disabled";
+        }
+      } else {
+        document.write('<script src="//assets.codepen.io/assets/embed/ei.js"><' + '\/script>');
+      }
+    </script>
+  
+
+
+    
+
+    
+
+
+
+
+  </body>
+</html>
