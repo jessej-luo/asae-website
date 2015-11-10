@@ -1,13 +1,4 @@
-/* Variables
-
-blue: 6FCBDC;
-light-gray: F0F0F0;
-orange: F5A623;
-red: ED5F5F;
-lightgrey: 8F9CB3;
-
-*/
-
+@import url('demo.css');
 body {
     margin: 0;
     font-family: 'Abel', sans-serif;
@@ -103,12 +94,10 @@ ul li {
   left: 0;
   background-color: rgba(0,0,0,0.36)
 }
-
-img.displayed {
-    display:block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
+.images {
+  display: table;
+  margin:0 auto;
+  margin-bottom: 20px;
 }
 /* about us */
 #wrap-home {
@@ -283,24 +272,22 @@ img.displayed {
   color: white;
   margin-top: 15px
 }
-/* icons */
-.fa-fighter-jet {
-    color: #FDB515;
-    margin-right: 20px;
+
+#team-links {
+  text-align: center;
+  margin-left: 30px;
 }
-.fa-code {
-    color:  #FDB515;
-    margin-right: 20px;
+.team-link {
+  font-size: 36px;
+  color: #FDB515;
+  text-align: center;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: 500;
 }
 
-.fa-battery-full {
-    color:  #FDB515;
-    margin-right: 20px;
-}
-
-.fa-paper-plane-o {
-    color:  #FDB515;
-}
 
 /* About us */
 .description {
@@ -309,6 +296,14 @@ img.displayed {
     margin: 50px;
     color: #e0e0e0;
     text-align: justify;
+}
+
+.description-center {
+    font-size: 18;
+    line-height: 28px;
+    margin: 50px;
+    color: #e0e0e0;
+    text-align: center;
 }
 /* footer */
 
@@ -468,5 +463,6 @@ img.displayed {
   .button.apply {
     width: initial
   }
-}
+
+
 
