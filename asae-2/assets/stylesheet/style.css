@@ -1,4 +1,3 @@
-@import url('demo.css');
 body {
     margin: 0;
     font-family: 'Abel', sans-serif;
@@ -65,22 +64,6 @@ a {
   width: 24px
 }
 
-/* icons */
-ul {
-    overflow: auto;
-    color: red;
-    margin-top: 20px;
-    margin-left: 60%;
-}
-
-ul li {
-    list-style-type: none;
-    float: left;
-    margin-left: 20px;
-    color: white;
-    font-size: 1;
-}
-
 /* utilities */
 .clear {
   clear: both;
@@ -124,7 +107,7 @@ ul li {
 #nav {
   position: fixed;
   width: 100%;
-  padding: 30px 80px 20px 80px;
+  padding: 10px 10px 0px 10px;
   z-index: 2;
   -webkit-box-shadow: 2px 2px 1px 2px black;
   -moz-box-shadow: 2px 2px 1px 2px black;
@@ -156,8 +139,8 @@ ul li {
 }
 
 #nav-sections {
-    display: inline-block;
-    margin-left: 50%;
+  display: inline-block;
+  margin-left: 40%;
 }
 
 .nav-section {
@@ -185,6 +168,69 @@ ul li {
   -ms-transition: opacity 2s ease-in-out;
   -o-transition: opacity 2s ease-in-out;
   opacity: 1;
+}
+
+
+ul.img-list {
+  list-style-type: none;
+  text-align: center;
+  height: 300px;
+  width: 100%;
+}
+
+figure {
+    display: inline-block;
+    margin: 20px; /* adjust as needed */
+}
+figure img {
+    vertical-align: top;
+}
+figure figcaption {
+    text-align: center;
+    color: white;
+    font-size: 18;
+}
+
+ul.img-list li {
+  display: inline-block;
+  margin: 0 1em 1em 0;
+  position: relative;
+}
+
+span.text-content {
+  background: rgba(0,0,0,0.8);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 300px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 200px;
+  opacity: 0;
+  border-raidus: 50%;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+ul.img-list li:hover span.text-content {
+  opacity: 1;
+}
+
+span.text-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.img-circle {
+  border-radius: 50%;
+  height: auto; 
+  width: auto; 
+  max-width: 200px; 
+  max-height: 200px;
 }
 
 .nav-section.active {
@@ -240,7 +286,6 @@ ul li {
   z-index: 1;
 }
 
-
 .headline {
   color: white;
   font-size: 56px;
@@ -248,17 +293,13 @@ ul li {
   font-weight: bold;
   text-align: center;
   line-height: 1.5;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
   letter-spacing: 0.06em
-
-
-
-
 }
 
 .sub-headline {
   width: 100%;
-  font-size: 20px;
+  font-size: 32px;
   text-align: center;
   line-height: 1.52;
   text-transform: uppercase;
@@ -275,7 +316,7 @@ ul li {
 
 #team-links {
   text-align: center;
-  margin-left: 30px;
+  width: 100%;
 }
 .team-link {
   font-size: 36px;
@@ -283,7 +324,7 @@ ul li {
   text-align: center;
   text-transform: uppercase;
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 50px;
   cursor: pointer;
   font-weight: 500;
 }
