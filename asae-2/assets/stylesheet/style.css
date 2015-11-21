@@ -15,15 +15,15 @@ html {
   box-sizing: inherit;
 }
 
-a {
+a.link {
   text-decoration: none;
   border-bottom: 2px solid #FDB515;
-  color: inherit;
+  color: white;
   padding: 3px;
   transition: 0.3s ease;
 }
 
-#about a:hover, #FAQ a:hover, #sponsor a:hover, #footer a:hover {
+#about a.link:hover, #FAQ a:hover, #sponsor a.link:hover, #footer a.link:hover {
   background-color: #FDB515;
   color: #181D29;
 }
@@ -44,6 +44,12 @@ a {
 .button-container {
   text-align: center;
   margin-top: 20px;
+  position: relative;
+}
+
+#push {
+  position: relative;
+  margin-top: 75px;
 }
 
 .button {
@@ -62,6 +68,48 @@ a {
   position: absolute;
   z-index: 1;
   width: 24px
+}
+
+#ngimg {
+  width: 500px;
+  margin: auto;
+  display: block;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+#sysimg {
+  width: 300px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+#solidworks {
+  width: 500px;
+  cursor: pointer;
+}
+
+#be {
+  height: 200px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+#boeing {
+  width: 300px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+#asuc {
+  height: 200px;
+  cursor: pointer;
+}
+
+#second {
+  display: table;
+  margin: auto;
+  margin-bottom: 20px;
 }
 
 /* utilities */
@@ -162,6 +210,7 @@ a {
   text-decoration: none;
   border: none;
   padding: 0;
+  color: white;
 }
 
 .nav-section a:hover, .button a:hover, #social a:hover {
